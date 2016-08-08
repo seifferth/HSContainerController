@@ -34,9 +34,9 @@ public class HSContainerController: UIViewController {
 	public var shouldReuseContentController			= true
 
 	/**
-	The animation duration of the transition animation. The default is `0.3`. Set it to `0` to disable the animation.
+	The animation duration of the transition animation. The default is `0.0`. Set it to `0` to disable the animation.
 	*/
-	public var transitionAnimationDuration			: NSTimeInterval = 0.3
+	public var transitionAnimationDuration			: NSTimeInterval = 0.0
 
 	/**
 	Settings regarding the logging in all `HSContainerController` instances.
@@ -45,7 +45,7 @@ public class HSContainerController: UIViewController {
 		/**
 		Set this to true if the log should be enabled. The default is `false`.
 		*/
-		public static var Verbose					= true
+		public static var Verbose					= false
 
 		/**
 		Set this to true if the log should containt detailed information about the calling class, function and line. The default is `false`.
