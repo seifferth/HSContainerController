@@ -102,7 +102,7 @@ public class HSContainerController: UIViewController {
 			for (storedSegueIdentifier, storedContentController) in self.embedContentControllers {
 				if (storedSegueIdentifier == segueIdentifier),
 					let _currentContentController = self.currentContentController {
-					self.replaceContentController(fromContentController: _currentContentController, toContentController: storedContentController)
+					self.replaceContentController(fromContentController: _currentContentController, toContentController: storedContentController, isReused: true)
 						// Update the reuse state
 						didReuseContentController = true
 						// Update the current segue identifier
@@ -129,7 +129,7 @@ public class HSContainerController: UIViewController {
 			// Check whether there is already a current content controler
 			if let _currentContentController = self.currentContentController {
 				// If there is a current content controller we can replace the content controller directly
-				self.replaceContentController(fromContentController: _currentContentController, toContentController: segue.destinationViewController)
+				self.replaceContentController(fromContentController: _currentContentController, toContentController: segue.destinationViewController, isReused: false)
 			} else {
 				// If there isn't a current controller we have to add it as child and add the view
 				self.addChildViewController(segue.destinationViewController)
@@ -140,7 +140,7 @@ public class HSContainerController: UIViewController {
 				destinationView.layoutIfNeeded()
 				self.view.addSubview(destinationView)
 				// Inform the content controller that is visible now
-				segue.destinationViewController.didMoveToParentViewController(self)
+				self.triggerDidMoveToParentViewControllerIfNeeded(segue.destinationViewController, isReused: false)
 				// Update the transition state flag
 				self.isPerformingTransition = false
 			}
@@ -182,8 +182,9 @@ public class HSContainerController: UIViewController {
 
 	- parameter fromContentController: The current content controller which should be replaced
 	- parameter toContentController: The new content controller which should be displayed
+	- parameter isReused: A `Bool` which indicates whether the view controller is reused
 	*/
-	private func replaceContentController(fromContentController fromContentController: UIViewController, toContentController: UIViewController) {
+	private func replaceContentController(fromContentController fromContentController: UIViewController, toContentController: UIViewController, isReused: Bool) {
 		Log("Replace content controller: \(fromContentController) with content controller \(toContentController)")
 
 		// Update the layout from the new content controller to match the current frame
@@ -192,12 +193,9 @@ public class HSContainerController: UIViewController {
 		toContentController.view.layoutIfNeeded()
 
 		// Prepare the transition
-		fromContentController.willMoveToParentViewController(nil)
 		self.addChildViewController(toContentController)
 		// Perform the transition
 		self.transitionFromViewController(fromContentController, toViewController: toContentController, duration: self.transitionAnimationDuration, options: .TransitionCrossDissolve, animations: nil) { (finished: Bool) -> Void in
-			// Remove the old content controller as the animation is completed
-			fromContentController.removeFromParentViewController()
 			// Remove the old content controller from the stored controllers if reusing is disabled. This will release the old content controller
 			if (self.shouldReuseContentController == false),
 				let _index = self.embedContentControllers.values.indexOf(fromContentController) {
@@ -205,9 +203,23 @@ public class HSContainerController: UIViewController {
 					self.embedContentControllers.removeAtIndex(_index)
 			}
 			// Complete the adding of the new content controller
-			toContentController.didMoveToParentViewController(self)
+			self.triggerDidMoveToParentViewControllerIfNeeded(toContentController, isReused: isReused)
+			// Remove the old content controller as the animation is completed
+			fromContentController.removeFromParentViewController()
 			// Update the transition state flag
 			self.isPerformingTransition = false
+		}
+	}
+
+	func triggerDidMoveToParentViewControllerIfNeeded(toContentController: UIViewController, isReused: Bool) {
+		if let _navigationController = toContentController as? UINavigationController {
+			// If the view isn't reused we don't need to do anything here as the navigation controller will trigger the didMoveToParentViewController method itself
+			if (isReused == true) {
+				_navigationController.childViewControllers.first?.didMoveToParentViewController(self)
+			}
+		} else {
+			// As the destination isn't a UINavigationController we need to call the method manually
+			toContentController.didMoveToParentViewController(self)
 		}
 	}
 }
