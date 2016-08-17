@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="560" width="600" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-rV-Cii">
-                                        <rect key="frame" x="300" y="0.0" width="300" height="40"/>
+                                        <rect key="frame" x="200" y="0.0" width="200" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="119" id="54Q-3u-6rj"/>
                                         </constraints>
@@ -37,28 +37,49 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0u0-9Z-3Ji">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
                                         <state key="normal" title="View Controller A"/>
                                         <connections>
                                             <action selector="didPressContentAButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="khh-Iu-DfH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyL-sR-nPA">
+                                        <rect key="frame" x="400" y="0.0" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="119" id="B7z-AQ-oLg"/>
+                                        </constraints>
+                                        <state key="normal" title="View Controller C"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="B7z-AQ-oLg"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="didPressContentCButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yss-eI-BSF"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="0u0-9Z-3Ji" firstAttribute="leading" secondItem="J4D-oE-snF" secondAttribute="leading" id="2fo-bG-OqX"/>
+                                    <constraint firstAttribute="bottom" secondItem="pyL-sR-nPA" secondAttribute="bottom" id="AyQ-lC-zg7"/>
                                     <constraint firstItem="0u0-9Z-3Ji" firstAttribute="height" secondItem="J4D-oE-snF" secondAttribute="height" id="BBR-5D-KNN"/>
+                                    <constraint firstAttribute="trailing" secondItem="pyL-sR-nPA" secondAttribute="trailing" id="BRi-jC-Iu4"/>
                                     <constraint firstItem="0u0-9Z-3Ji" firstAttribute="top" secondItem="J4D-oE-snF" secondAttribute="top" id="DMW-PR-7iS"/>
-                                    <constraint firstItem="0u0-9Z-3Ji" firstAttribute="width" secondItem="J4D-oE-snF" secondAttribute="width" multiplier="1/2" id="DP1-Rc-CLK"/>
+                                    <constraint firstItem="0u0-9Z-3Ji" firstAttribute="width" secondItem="J4D-oE-snF" secondAttribute="width" multiplier="1/3" id="DP1-Rc-CLK"/>
                                     <constraint firstItem="Ret-rV-Cii" firstAttribute="height" secondItem="0u0-9Z-3Ji" secondAttribute="height" id="GjQ-eY-8td"/>
+                                    <constraint firstItem="Ret-rV-Cii" firstAttribute="leading" secondItem="0u0-9Z-3Ji" secondAttribute="trailing" id="H0o-ZX-vdI"/>
                                     <constraint firstAttribute="trailing" secondItem="Ret-rV-Cii" secondAttribute="trailing" id="P0F-Ct-DJr"/>
                                     <constraint firstItem="Ret-rV-Cii" firstAttribute="width" secondItem="0u0-9Z-3Ji" secondAttribute="width" id="T80-9K-Tq9"/>
                                     <constraint firstItem="Ret-rV-Cii" firstAttribute="leading" secondItem="0u0-9Z-3Ji" secondAttribute="trailing" constant="114" id="VTI-OG-RMa"/>
+                                    <constraint firstItem="pyL-sR-nPA" firstAttribute="width" secondItem="Ret-rV-Cii" secondAttribute="width" id="gFC-Tz-J5n"/>
                                     <constraint firstItem="Ret-rV-Cii" firstAttribute="top" secondItem="J4D-oE-snF" secondAttribute="top" id="gkn-qj-O54"/>
+                                    <constraint firstItem="pyL-sR-nPA" firstAttribute="top" secondItem="J4D-oE-snF" secondAttribute="top" id="q0Y-Zf-7wL"/>
                                     <constraint firstAttribute="height" constant="40" id="uTW-ZJ-LNw"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="P0F-Ct-DJr"/>
                                         <exclude reference="VTI-OG-RMa"/>
                                     </mask>
                                 </variation>
@@ -110,6 +131,7 @@
                     <connections>
                         <segue destination="b8E-TD-VWX" kind="custom" identifier="showContentA" customClass="HSContainerControllerSegue" customModule="HSContainerController" id="Zfw-bv-cDD"/>
                         <segue destination="NKY-Sc-3FS" kind="custom" identifier="showContentB" customClass="HSContainerControllerSegue" customModule="HSContainerController" id="h0y-bn-29i"/>
+                        <segue destination="p1Y-Sw-ybW" kind="custom" identifier="showContentC" customClass="HSContainerControllerSegue" customModule="HSContainerController" id="dIV-IO-ecf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqC-Xg-Qpq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,42 +228,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHv-QK-BwG">
-                                <rect key="frame" x="200" y="20" width="400" height="580"/>
+                                <rect key="frame" x="240" y="20" width="360" height="580"/>
                                 <connections>
                                     <segue destination="qpI-6l-ORd" kind="embed" identifier="customSegueIdentifier" id="Vr4-Gt-9Qj"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ust-Qd-vNP">
-                                <rect key="frame" x="0.0" y="20" width="200" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="240" height="580"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="PKw-2d-Wlk"/>
+                                    <constraint firstAttribute="width" constant="240" id="PKw-2d-Wlk"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYa-ri-dVJ">
-                                <rect key="frame" x="138" y="30" width="47" height="30"/>
+                                <rect key="frame" x="178" y="30" width="47" height="30"/>
                                 <state key="normal" title="Toggle"/>
                                 <connections>
                                     <action selector="didPressToggleMenuButton:" destination="xsc-No-BUO" eventType="touchUpInside" id="QeC-zA-9em"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Z1-Ay-4kz">
-                                <rect key="frame" x="10" y="120" width="34" height="30"/>
-                                <state key="normal" title="VC A"/>
+                                <rect key="frame" x="10" y="120" width="76" height="30"/>
+                                <state key="normal" title="Show VC A"/>
                                 <connections>
                                     <action selector="didPressContentAButton:" destination="xsc-No-BUO" eventType="touchUpInside" id="aqK-uq-4RX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIi-7V-Vhx">
-                                <rect key="frame" x="10" y="165" width="34" height="30"/>
-                                <state key="normal" title="VC B"/>
+                                <rect key="frame" x="10" y="165" width="76" height="30"/>
+                                <state key="normal" title="Show VC B"/>
                                 <connections>
                                     <action selector="didPressContentBButton:" destination="xsc-No-BUO" eventType="touchUpInside" id="4Ik-hV-Qwk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-Nd-hNU">
+                                <rect key="frame" x="10" y="210" width="77" height="30"/>
+                                <state key="normal" title="Show VC C"/>
+                                <connections>
+                                    <action selector="didPressContentCButton:" destination="xsc-No-BUO" eventType="touchUpInside" id="mHZ-pG-cud"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zxt-Nd-hNU" firstAttribute="leading" secondItem="kr3-lu-zDP" secondAttribute="leading" constant="10" id="Abi-m9-7Eh"/>
                             <constraint firstAttribute="trailing" secondItem="fHv-QK-BwG" secondAttribute="trailing" id="Ash-bi-cem"/>
                             <constraint firstItem="6Z1-Ay-4kz" firstAttribute="leading" secondItem="kr3-lu-zDP" secondAttribute="leading" constant="10" id="FNg-6w-ldQ"/>
                             <constraint firstItem="D9g-bQ-iko" firstAttribute="top" secondItem="Ust-Qd-vNP" secondAttribute="bottom" id="GQ2-7C-dhf"/>
@@ -254,6 +284,7 @@
                             <constraint firstItem="CIi-7V-Vhx" firstAttribute="leading" secondItem="kr3-lu-zDP" secondAttribute="leading" constant="10" id="Y04-I3-zkC"/>
                             <constraint firstItem="6Z1-Ay-4kz" firstAttribute="top" secondItem="wYa-ri-dVJ" secondAttribute="bottom" constant="60" id="hRT-ai-WvG"/>
                             <constraint firstItem="D9g-bQ-iko" firstAttribute="top" secondItem="fHv-QK-BwG" secondAttribute="bottom" id="lzp-7p-6Mq"/>
+                            <constraint firstItem="Zxt-Nd-hNU" firstAttribute="top" secondItem="CIi-7V-Vhx" secondAttribute="bottom" constant="15" id="nAt-MF-7Do"/>
                             <constraint firstItem="fHv-QK-BwG" firstAttribute="leading" secondItem="wYa-ri-dVJ" secondAttribute="trailing" constant="15" id="y34-hN-ZCg"/>
                             <constraint firstItem="fHv-QK-BwG" firstAttribute="top" secondItem="PUl-Oo-kqq" secondAttribute="bottom" id="yaw-CD-jMg"/>
                         </constraints>
@@ -331,6 +362,66 @@
             </objects>
             <point key="canvasLocation" x="552" y="4"/>
         </scene>
+        <!--VC B-->
+        <scene sceneID="23u-QX-YGL">
+            <objects>
+                <viewController id="p1Y-Sw-ybW" customClass="ContentViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3bW-HS-Om9"/>
+                        <viewControllerLayoutGuide type="bottom" id="RdO-C4-pft"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U7n-Sq-fMW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qE5-Z5-5og">
+                                <rect key="frame" x="263" y="231" width="74" height="137"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1d-TK-rVO">
+                                        <rect key="frame" x="10" y="0.0" width="55" height="96"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5G-pF-1hh">
+                                        <rect key="frame" x="0.0" y="116" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="H5G-pF-1hh" firstAttribute="leading" secondItem="qE5-Z5-5og" secondAttribute="leading" id="0kX-0d-wg8"/>
+                                    <constraint firstItem="H5G-pF-1hh" firstAttribute="top" secondItem="f1d-TK-rVO" secondAttribute="bottom" constant="20" id="0uw-HV-CRg"/>
+                                    <constraint firstAttribute="bottom" secondItem="H5G-pF-1hh" secondAttribute="bottom" id="5rW-t9-YhG"/>
+                                    <constraint firstAttribute="trailing" secondItem="H5G-pF-1hh" secondAttribute="trailing" id="EFS-MR-wkw"/>
+                                    <constraint firstItem="f1d-TK-rVO" firstAttribute="centerX" secondItem="qE5-Z5-5og" secondAttribute="centerX" id="N16-23-x9K"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f1d-TK-rVO" secondAttribute="trailing" id="eTB-XZ-r1p"/>
+                                    <constraint firstItem="f1d-TK-rVO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qE5-Z5-5og" secondAttribute="leading" id="io3-rY-dSk"/>
+                                    <constraint firstItem="f1d-TK-rVO" firstAttribute="top" secondItem="qE5-Z5-5og" secondAttribute="top" id="mUM-Ff-VVh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qE5-Z5-5og" firstAttribute="centerX" secondItem="U7n-Sq-fMW" secondAttribute="centerX" id="HVu-uG-hvr"/>
+                            <constraint firstItem="qE5-Z5-5og" firstAttribute="centerY" secondItem="U7n-Sq-fMW" secondAttribute="centerY" id="rJI-6T-mqI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="VC B" id="u38-G7-2ES">
+                        <barButtonItem key="rightBarButtonItem" title="Item in B" id="BNZ-Ku-X09"/>
+                    </navigationItem>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="H5G-pF-1hh" id="ofr-be-CCf"/>
+                        <outlet property="titleLabel" destination="f1d-TK-rVO" id="yt3-Kt-k6Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJ3-Wx-My7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="760"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="C8q-Us-oXy">
             <objects>
@@ -369,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFG-dF-3Oi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="-1783"/>
+            <point key="canvasLocation" x="156" y="-1783"/>
         </scene>
         <!--Container Controller-->
         <scene sceneID="D0s-C0-sro">
@@ -390,6 +481,7 @@
                     <connections>
                         <segue destination="b8E-TD-VWX" kind="custom" identifier="showContentA" customClass="HSContainerControllerSegue" customModule="HSContainerController" id="bSf-GO-5nL"/>
                         <segue destination="NKY-Sc-3FS" kind="custom" identifier="showContentB" customClass="HSContainerControllerSegue" customModule="HSContainerController" id="ReN-Ip-JH0"/>
+                        <segue destination="p1Y-Sw-ybW" kind="custom" identifier="showContentC" customClass="HSContainerControllerSegue" customModule="HSContainerController" id="Bf8-mr-BP7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAS-kr-SDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,7 +506,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zfw-bv-cDD"/>
         <segue reference="h0y-bn-29i"/>
+        <segue reference="dIV-IO-ecf"/>
+        <segue reference="Zfw-bv-cDD"/>
     </inferredMetricsTieBreakers>
 </document>

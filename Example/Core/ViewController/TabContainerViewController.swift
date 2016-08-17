@@ -19,6 +19,10 @@ class TabContainerViewController: UIViewController {
 		self.containerController?.displayContentController(segueIdentifier: "showContentB")
 	}
 
+	@IBAction func didPressContentCButton(sender: AnyObject) {
+		self.containerController?.displayContentController(segueIdentifier: "showContentC")
+	}
+
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
