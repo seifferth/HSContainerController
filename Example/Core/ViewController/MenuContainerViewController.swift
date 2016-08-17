@@ -32,6 +32,10 @@ class MenuContainerViewController: UIViewController {
 		self.customContainerController?.displayContentController(segueIdentifier: "showContentB")
 	}
 
+	@IBAction func didPressContentCButton(sender: AnyObject) {
+		self.customContainerController?.displayContentController(segueIdentifier: "showContentC")
+	}
+
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
