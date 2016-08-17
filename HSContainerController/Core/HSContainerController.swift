@@ -63,8 +63,8 @@ public class HSContainerController: UIViewController {
 
 	// MARK: - Lifecycle
 
-	override public func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
+	override public func viewDidLoad() {
+		super.viewDidLoad()
 
 		// Show the default view controller if the the container view is empty and a default segue identifier is set.
 		if (self.currentContentController == nil),
