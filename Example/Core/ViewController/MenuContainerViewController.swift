@@ -17,7 +17,7 @@ class MenuContainerViewController: UIViewController {
 	@IBOutlet weak var menuWidthConstraint		: NSLayoutConstraint?
 
 	@IBAction func didPressToggleMenuButton(sender: AnyObject) {
-		self.menuWidthConstraint?.constant = (isMenuCollapsed == true ? 200 : 70)
+		self.menuWidthConstraint?.constant = (isMenuCollapsed == true ? 240 : 120)
 		UIView.animateWithDuration(0.3) {
 			self.view.layoutIfNeeded()
 			self.isMenuCollapsed = !self.isMenuCollapsed
