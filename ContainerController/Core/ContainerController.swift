@@ -1,6 +1,6 @@
 //
-//  HSContainerController.swift
-//  HSContainerController
+//  ContainerController.swift
+//  ContainerController
 //
 //  Created by Hans Seiffert on 06.08.16.
 //  Copyright © 2016 Hans Seiffert. All rights reserved.
@@ -13,7 +13,7 @@ A `UIViewController` which can be used as embed view controller of an `UIContain
 By using segues in the storyboard which point from an instance of this class to other view controller it's possible to dynamically replace them using segues.
 This can be used for custom tab bars, side menus, etc.. The content view controller can either be reused or newly created everytime they are openend by setting the `shouldReuseContentController` flag.
 */
-public class HSContainerController: UIViewController {
+public class ContainerController: UIViewController {
 
 	// MARK: - PUBLIC -
 
@@ -39,7 +39,7 @@ public class HSContainerController: UIViewController {
 	public var transitionAnimationDuration			: NSTimeInterval = 0.0
 
 	/**
-	Settings regarding the logging in all `HSContainerController` instances.
+	Settings regarding the logging in all `ContainerController` instances.
 	*/
 	public struct LogSettings {
 		/**
@@ -76,7 +76,7 @@ public class HSContainerController: UIViewController {
 	// MARK: - Display
 
 	/**
-	Displays the content controller with the given segie identifier. The segue has to point from the `HSContainerController` object to an `UIViewController`.
+	Displays the content controller with the given segie identifier. The segue has to point from the `ContainerController` object to an `UIViewController`.
 	If there is already a content controller shown, it will be replaced by the new one and either store in the memory or released (depending on the `shouldReuseContentController` property.
 
 	- parameter segueIdentifier: The segue identifier of the segue to the content controller which should be displayed.
@@ -147,7 +147,7 @@ public class HSContainerController: UIViewController {
 			// Update the current segue identifier
 			self.currentSegueIdentifier = _segueIdentifier
 		} else {
-			assertionFailure("Error using HSContainerController: The segue has to contain an identifier!")
+			assertionFailure("Error using ContainerController: The segue has to contain an identifier!")
 		}
 	}
 

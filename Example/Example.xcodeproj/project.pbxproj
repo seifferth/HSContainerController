@@ -13,25 +13,17 @@
 		8745ADC11D5645DB00393E54 /* TabContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745ADB71D5645DB00393E54 /* TabContainerViewController.swift */; };
 		8745ADC31D5645DB00393E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8745ADBB1D5645DB00393E54 /* Assets.xcassets */; };
 		8745ADC41D5645DB00393E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8745ADBC1D5645DB00393E54 /* LaunchScreen.storyboard */; };
-		8745ADCC1D56467400393E54 /* HSContainerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8745ADCB1D56466C00393E54 /* HSContainerController.framework */; };
-		8745ADCD1D56467400393E54 /* HSContainerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8745ADCB1D56466C00393E54 /* HSContainerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8745ADD21D56473800393E54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8745ADBD1D5645DB00393E54 /* Main.storyboard */; };
+		87C84EC51D9F097B00889FE0 /* ContainerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C84EC41D9F08E200889FE0 /* ContainerController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8745ADCA1D56466C00393E54 /* PBXContainerItemProxy */ = {
+		87C84EC31D9F08E200889FE0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8745ADC61D56466C00393E54 /* HSContainerController.xcodeproj */;
+			containerPortal = 87C84EBF1D9F08E100889FE0 /* ContainerController.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 87114B181D55EBA600C58D85;
-			remoteInfo = HSContainerController;
-		};
-		8745ADCE1D56467400393E54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8745ADC61D56466C00393E54 /* HSContainerController.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 87114B171D55EBA600C58D85;
-			remoteInfo = HSContainerController;
+			remoteInfo = ContainerController;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -42,7 +34,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8745ADCD1D56467400393E54 /* HSContainerController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +50,7 @@
 		8745ADBB1D5645DB00393E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8745ADBC1D5645DB00393E54 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8745ADBD1D5645DB00393E54 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8745ADC61D56466C00393E54 /* HSContainerController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HSContainerController.xcodeproj; path = ../HSContainerController/HSContainerController.xcodeproj; sourceTree = "<group>"; };
+		87C84EBF1D9F08E100889FE0 /* ContainerController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ContainerController.xcodeproj; path = ../ContainerController/ContainerController.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8745ADCC1D56467400393E54 /* HSContainerController.framework in Frameworks */,
+				87C84EC51D9F097B00889FE0 /* ContainerController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +68,7 @@
 		87114B231D55EBDB00C58D85 = {
 			isa = PBXGroup;
 			children = (
-				8745ADC61D56466C00393E54 /* HSContainerController.xcodeproj */,
+				87C84EBF1D9F08E100889FE0 /* ContainerController.xcodeproj */,
 				8745ADB21D5645DB00393E54 /* Core */,
 				8745ADBA1D5645DB00393E54 /* Resources */,
 				8745ADB81D5645DB00393E54 /* PLists */,
@@ -130,10 +121,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		8745ADC71D56466C00393E54 /* Products */ = {
+		87C84EC01D9F08E100889FE0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8745ADCB1D56466C00393E54 /* HSContainerController.framework */,
+				87C84EC41D9F08E200889FE0 /* ContainerController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +145,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				8745ADCF1D56467400393E54 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -190,8 +180,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8745ADC71D56466C00393E54 /* Products */;
-					ProjectRef = 8745ADC61D56466C00393E54 /* HSContainerController.xcodeproj */;
+					ProductGroup = 87C84EC01D9F08E100889FE0 /* Products */;
+					ProjectRef = 87C84EBF1D9F08E100889FE0 /* ContainerController.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -202,11 +192,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8745ADCB1D56466C00393E54 /* HSContainerController.framework */ = {
+		87C84EC41D9F08E200889FE0 /* ContainerController.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = HSContainerController.framework;
-			remoteRef = 8745ADCA1D56466C00393E54 /* PBXContainerItemProxy */;
+			path = ContainerController.framework;
+			remoteRef = 87C84EC31D9F08E200889FE0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -254,14 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8745ADCF1D56467400393E54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HSContainerController;
-			targetProxy = 8745ADCE1D56467400393E54 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		87114B3C1D55EBDB00C58D85 /* Debug */ = {
@@ -358,7 +340,7 @@
 				INFOPLIST_FILE = "PLists/Example-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.swift.hscontainercontroller.example;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.swift.containercontroller.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "35c65a7a-c0c5-4add-ae0f-c5b38f3809d0";
 			};
@@ -373,7 +355,7 @@
 				INFOPLIST_FILE = "PLists/Example-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.swift.hscontainercontroller.example;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.swift.containercontroller.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
