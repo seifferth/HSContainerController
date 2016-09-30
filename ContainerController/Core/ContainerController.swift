@@ -60,7 +60,6 @@ public class ContainerController: UIViewController {
 	*/
 	public var defaultSegueIdentifier				: UIStoryboardSegueIdentifier?
 
-
 	// MARK: - Lifecycle
 
 	override public func viewDidLoad() {
