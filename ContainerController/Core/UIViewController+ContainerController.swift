@@ -1,6 +1,6 @@
 //
-//  UIViewController+HSContainerController.swift
-//  HSContainerController
+//  UIViewController+ContainerController.swift
+//  ContainerController
 //
 //  Created by Hans Seiffert on 06.08.16.
 //  Copyright © 2016 Hans Seiffert. All rights reserved.
@@ -14,11 +14,11 @@ public extension UIViewController {
 	// MARK: - PUBLIC -
 
 	/**
-	The `HSContainerController` object which is contained in the `UIContainerView`.
+	The `ContainerController` object which is contained in the `UIContainerView`.
 	This property is set within the `setupContainerControllerIfNeeded` method using the default segue identifier.
 	If you want to use a diferent segue identifier or multiple container controller in one view controller you have to store them manually by responding to your custom segue identifier.
 	*/
-	public var containerController	: HSContainerController? {
+	public var containerController	: ContainerController? {
 		get {
 			return self.privateContainerController
 		}
@@ -33,8 +33,8 @@ public extension UIViewController {
 	- parameter didSetup: A closure which will only be called if the container controller is initialized. You might want to adjust the settings then. The default value is `nil`.
 	*/
 	public func cc_setupContainerControllerIfNeeded(segue: UIStoryboardSegue, defaultSegueIdentifier: String?, didSetup: (Void -> Void)? = nil) {
-		if (self.privateContainerController == nil && segue.identifier == HSContainerController.EmbedSegueIdentifier),
-			let _containerController = segue.destinationViewController as? HSContainerController {
+		if (self.privateContainerController == nil && segue.identifier == ContainerController.EmbedSegueIdentifier),
+			let _containerController = segue.destinationViewController as? ContainerController {
 				self.privateContainerController = _containerController
 				self.privateContainerController?.defaultSegueIdentifier = defaultSegueIdentifier
 				didSetup?()
@@ -44,20 +44,20 @@ public extension UIViewController {
 	// MARK: - PRIVATE -
 
 	private struct AssociatedKeys {
-		static var PrivateContainerController = "hs_privateContainerController"
+		static var PrivateContainerController = "cc_privateContainerController"
 	}
 
 	/**
-	The private associated property which holds the default `HSContainerController` object. It's readable from the outside with the 'containerController' property.
+	The private associated property which holds the default `ContainerController` object. It's readable from the outside with the 'containerController' property.
 	*/
-	private var privateContainerController	: HSContainerController? {
+	private var privateContainerController	: ContainerController? {
 		get {
-			return objc_getAssociatedObject(self, &AssociatedKeys.PrivateContainerController) as? HSContainerController
+			return objc_getAssociatedObject(self, &AssociatedKeys.PrivateContainerController) as? ContainerController
 		}
 
 		set {
 			if let newValue = newValue {
-				objc_setAssociatedObject(self, &AssociatedKeys.PrivateContainerController, newValue as HSContainerController?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+				objc_setAssociatedObject(self, &AssociatedKeys.PrivateContainerController, newValue as ContainerController?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 			}
 		}
 	}

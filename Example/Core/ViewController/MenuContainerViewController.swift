@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import HSContainerController
+import ContainerController
 
 class MenuContainerViewController: UIViewController {
 
-	private var customContainerController		: HSContainerController?
+	private var customContainerController		: ContainerController?
 
 	private var isMenuCollapsed					= false
 	@IBOutlet weak var menuWidthConstraint		: NSLayoutConstraint?
@@ -40,7 +40,7 @@ class MenuContainerViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if (segue.identifier == "customSegueIdentifier"),
-			let _containerController = segue.destinationViewController as? HSContainerController {
+			let _containerController = segue.destinationViewController as? ContainerController {
 				self.customContainerController = _containerController
 				self.customContainerController?.shouldReuseContentController = false
 				self.customContainerController?.defaultSegueIdentifier = "showContentA"

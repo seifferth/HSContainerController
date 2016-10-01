@@ -3,11 +3,11 @@ osx_image: xcode7.3
 sudo: false
 env:
   global:
-    - FRAMEWORK_NAME=HSContainerController
+    - FRAMEWORK_NAME=ContainerController
     - LC_CTYPE=en_US.UTF-8
     - LANG=en_US.UTF-8
-    - WORKSPACE=HSContainerController.xcworkspace
-    - IOS_FRAMEWORK_SCHEME="HSContainerController"
+    - WORKSPACE=ContainerController.xcworkspace
+    - IOS_FRAMEWORK_SCHEME="ContainerController"
     - IOS_SDK=iphonesimulator
     - IOS_EXAMPLE_SCHEME="Example"
   matrix:
@@ -18,4 +18,5 @@ script:
   - set -o pipefail
   # Build Framework and Run Tests
   - xctool -workspace "$WORKSPACE" -scheme "$IOS_FRAMEWORK_SCHEME" -sdk "$IOS_SDK" -destination "$DESTINATION" | xcpretty
+  - xctool -workspace "$WORKSPACE" -scheme "$IOS_EXAMPLE_SCHEME" -sdk "$IOS_SDK" -destination "$DESTINATION" | xcpretty
   - pod lib lint

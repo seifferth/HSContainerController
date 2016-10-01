@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import HSContainerController
+import ContainerController
 
 class TabContainerViewController: UIViewController {
 

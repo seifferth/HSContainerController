@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "87114B171D55EBA600C58D85"
-               BuildableName = "HSContainerController.framework"
-               BlueprintName = "HSContainerController"
-               ReferencedContainer = "container:HSContainerController.xcodeproj">
+               BuildableName = "ContainerController.framework"
+               BlueprintName = "ContainerController"
+               ReferencedContainer = "container:ContainerController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "87114B171D55EBA600C58D85"
-            BuildableName = "HSContainerController.framework"
-            BlueprintName = "HSContainerController"
-            ReferencedContainer = "container:HSContainerController.xcodeproj">
+            BuildableName = "ContainerController.framework"
+            BlueprintName = "ContainerController"
+            ReferencedContainer = "container:ContainerController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "87114B171D55EBA600C58D85"
-            BuildableName = "HSContainerController.framework"
-            BlueprintName = "HSContainerController"
-            ReferencedContainer = "container:HSContainerController.xcodeproj">
+            BuildableName = "ContainerController.framework"
+            BlueprintName = "ContainerController"
+            ReferencedContainer = "container:ContainerController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
