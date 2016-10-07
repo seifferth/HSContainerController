@@ -10,8 +10,11 @@ import UIKit
 
 class ContentViewController: UIViewController {
 
+	var bottomText								: String?
+
 	@IBOutlet private weak var titleLabel		: UILabel?
 	@IBOutlet private weak var messageLabel		: UILabel?
+	@IBOutlet private weak var bottomLabel		: UILabel?
 
 	private var didDisappear					= false
 
@@ -19,6 +22,8 @@ class ContentViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.logLifecycle(#function)
+
+		self.bottomLabel?.text = self.bottomText
 	}
 
 	override func viewDidDisappear(animated: Bool) {

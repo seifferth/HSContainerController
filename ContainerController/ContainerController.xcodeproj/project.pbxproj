@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3ADD6DB21DA7C2CA008D0B02 /* ContainerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD6DB11DA7C2CA008D0B02 /* ContainerControllerDelegate.swift */; };
 		87114B541D55EDDA00C58D85 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87114B521D55EDDA00C58D85 /* ContainerController.swift */; };
 		87114B581D55EDE100C58D85 /* ContainerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 87114B571D55EDE100C58D85 /* ContainerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8745ADD11D56472A00393E54 /* ContainerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87114B531D55EDDA00C58D85 /* ContainerControllerSegue.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3ADD6DB11DA7C2CA008D0B02 /* ContainerControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerControllerDelegate.swift; sourceTree = "<group>"; };
 		87114B181D55EBA600C58D85 /* ContainerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ContainerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87114B421D55EC8700C58D85 /* ContainerController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContainerController-Info.plist"; sourceTree = "<group>"; };
 		87114B521D55EDDA00C58D85 /* ContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				87114B521D55EDDA00C58D85 /* ContainerController.swift */,
+				3ADD6DB11DA7C2CA008D0B02 /* ContainerControllerDelegate.swift */,
 				87114B531D55EDDA00C58D85 /* ContainerControllerSegue.swift */,
 				877DFDE81D56226000A1BF33 /* UIViewController+ContainerController.swift */,
 			);
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8745ADD11D56472A00393E54 /* ContainerControllerSegue.swift in Sources */,
+				3ADD6DB21DA7C2CA008D0B02 /* ContainerControllerDelegate.swift in Sources */,
 				87114B541D55EDDA00C58D85 /* ContainerController.swift in Sources */,
 				874CF04B1D55F02E0049423E /* Log.swift in Sources */,
 				877DFDE91D56226000A1BF33 /* UIViewController+ContainerController.swift in Sources */,
