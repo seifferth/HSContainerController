@@ -60,6 +60,8 @@ public class ContainerController: UIViewController {
 	*/
 	public var defaultSegueIdentifier				: UIStoryboardSegueIdentifier?
 
+	public weak var delegate						: ContainerControllerDelegate?
+
 	// MARK: - Lifecycle
 
 	override public func viewDidLoad() {
@@ -130,6 +132,8 @@ public class ContainerController: UIViewController {
 				// If there is a current content controller we can replace the content controller directly
 				self.replaceContentController(fromContentController: _currentContentController, toContentController: segue.destinationViewController, isReused: false)
 			} else {
+				// Inform the delegate that the view controller is created and will be displayed. As it's just created it's not reused.
+				self.delegate?.containerController(self, willDisplay: segue.destinationViewController, isReused: false)
 				// If there isn't a current controller we have to add it as child and add the view
 				self.addChildViewController(segue.destinationViewController)
 				// Replace the container view with the content controlers view
@@ -185,6 +189,9 @@ public class ContainerController: UIViewController {
 	*/
 	private func replaceContentController(fromContentController fromContentController: UIViewController, toContentController: UIViewController, isReused: Bool) {
 		Log("Replace content controller: \(fromContentController) with content controller \(toContentController)")
+
+		// Inform the delegate that the view controller will be displayed
+		self.delegate?.containerController(self, willDisplay: toContentController, isReused: isReused)
 
 		// Update the layout from the new content controller to match the current frame
 		toContentController.view.frame = self.view.bounds

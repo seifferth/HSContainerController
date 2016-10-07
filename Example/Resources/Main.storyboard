@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4er-Bn-9Vu">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4er-Bn-9Vu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -178,11 +178,19 @@
                                     <constraint firstAttribute="bottom" secondItem="uKI-3K-8gy" secondAttribute="bottom" id="r6z-Oj-n6h"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gef-yz-LbT">
+                                <rect key="frame" x="279" y="539" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.45098039509999999" green="0.72156864399999998" blue="0.3843137324" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gef-yz-LbT" firstAttribute="centerX" secondItem="dkz-W4-dQG" secondAttribute="centerX" id="F3w-OF-sXG"/>
                             <constraint firstItem="PZY-cQ-OvT" firstAttribute="centerX" secondItem="dkz-W4-dQG" secondAttribute="centerX" id="G6E-lS-RD0"/>
                             <constraint firstItem="PZY-cQ-OvT" firstAttribute="centerY" secondItem="dkz-W4-dQG" secondAttribute="centerY" id="OxC-N0-qQB"/>
+                            <constraint firstItem="5Dh-T4-4XA" firstAttribute="top" secondItem="gef-yz-LbT" secondAttribute="bottom" constant="40" id="xUT-AD-dtJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="VC A" id="IUg-B9-ukr">
@@ -191,6 +199,7 @@
                     </navigationItem>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="bottomLabel" destination="gef-yz-LbT" id="QNd-Rt-MKo"/>
                         <outlet property="messageLabel" destination="uKI-3K-8gy" id="gD7-Pu-hQf"/>
                         <outlet property="titleLabel" destination="Q2Y-Bh-SIf" id="gU0-Qy-l3U"/>
                     </connections>
@@ -342,9 +351,17 @@
                                     <constraint firstItem="ZeY-Ol-wVU" firstAttribute="leading" secondItem="toM-Rz-WcM" secondAttribute="leading" id="zqj-eN-4fw"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byZ-6M-GXy">
+                                <rect key="frame" x="279" y="539" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="byZ-6M-GXy" firstAttribute="centerX" secondItem="Gic-qa-AWf" secondAttribute="centerX" id="0Lo-u1-we8"/>
+                            <constraint firstItem="8pk-lg-gm3" firstAttribute="top" secondItem="byZ-6M-GXy" secondAttribute="bottom" constant="40" id="5P4-gL-bMo"/>
                             <constraint firstItem="toM-Rz-WcM" firstAttribute="centerX" secondItem="Gic-qa-AWf" secondAttribute="centerX" id="K8Q-9w-f1U"/>
                             <constraint firstItem="toM-Rz-WcM" firstAttribute="centerY" secondItem="Gic-qa-AWf" secondAttribute="centerY" id="Z5r-P5-QdM"/>
                         </constraints>
@@ -354,6 +371,7 @@
                     </navigationItem>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="bottomLabel" destination="byZ-6M-GXy" id="T4P-iR-hET"/>
                         <outlet property="messageLabel" destination="ZeY-Ol-wVU" id="bvf-HJ-V0l"/>
                         <outlet property="titleLabel" destination="DmP-5W-IQV" id="OA7-2s-v8T"/>
                     </connections>
@@ -402,10 +420,18 @@
                                     <constraint firstItem="f1d-TK-rVO" firstAttribute="top" secondItem="qE5-Z5-5og" secondAttribute="top" id="mUM-Ff-VVh"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7R-gP-bjo">
+                                <rect key="frame" x="279" y="539" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qE5-Z5-5og" firstAttribute="centerX" secondItem="U7n-Sq-fMW" secondAttribute="centerX" id="HVu-uG-hvr"/>
+                            <constraint firstItem="z7R-gP-bjo" firstAttribute="centerX" secondItem="U7n-Sq-fMW" secondAttribute="centerX" id="hxE-ug-ECz"/>
+                            <constraint firstItem="RdO-C4-pft" firstAttribute="top" secondItem="z7R-gP-bjo" secondAttribute="bottom" constant="40" id="jiq-Qq-NCY"/>
                             <constraint firstItem="qE5-Z5-5og" firstAttribute="centerY" secondItem="U7n-Sq-fMW" secondAttribute="centerY" id="rJI-6T-mqI"/>
                         </constraints>
                     </view>
@@ -414,6 +440,7 @@
                     </navigationItem>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="bottomLabel" destination="z7R-gP-bjo" id="coK-in-8Ek"/>
                         <outlet property="messageLabel" destination="H5G-pF-1hh" id="ofr-be-CCf"/>
                         <outlet property="titleLabel" destination="f1d-TK-rVO" id="yt3-Kt-k6Z"/>
                     </connections>
@@ -507,7 +534,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ReN-Ip-JH0"/>
-        <segue reference="bSf-GO-5nL"/>
         <segue reference="Bf8-mr-BP7"/>
+        <segue reference="bSf-GO-5nL"/>
     </inferredMetricsTieBreakers>
 </document>

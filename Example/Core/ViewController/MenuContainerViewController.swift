@@ -44,6 +44,22 @@ class MenuContainerViewController: UIViewController {
 				self.customContainerController = _containerController
 				self.customContainerController?.shouldReuseContentController = false
 				self.customContainerController?.defaultSegueIdentifier = "showContentA"
+				self.customContainerController?.delegate = self
 		}
     }
+}
+
+extension MenuContainerViewController: ContainerControllerDelegate {
+
+	func containerController(containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool) {
+		if (isReused == false) {
+			if let
+				_navigationController = contentController as? UINavigationController,
+				_contentController = _navigationController.viewControllers.first as? ContentViewController {
+				_contentController.bottomText = "Text set from the calling UIViewController"
+			} else if let _contentController = contentController as? ContentViewController {
+				_contentController.bottomText = "Text set from the calling UIViewController"
+			}
+		}
+	}
 }
