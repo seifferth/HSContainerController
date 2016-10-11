@@ -84,7 +84,7 @@ public class ContainerController: UIViewController {
 	*/
 	public func displayContentController(segueIdentifier segueIdentifier: UIStoryboardSegueIdentifier) {
 
-		guard self.isPerformingTransition == false && self.currentSegueIdentifier != segueIdentifier else {
+		guard self.isPerformingTransition == false && (self.currentSegueIdentifier != segueIdentifier || self.shouldReuseContentController == false) else {
 			// Don't perform the swap if we are currently performing a transition or if the target view controller is already is shown.
 			Log("Segue with the identifier \(segueIdentifier) won't be displayed as it is already the current content controller")
 			return
@@ -103,7 +103,7 @@ public class ContainerController: UIViewController {
 			for (storedSegueIdentifier, storedContentController) in self.embedContentControllers {
 				if (storedSegueIdentifier == segueIdentifier),
 					let _currentContentController = self.currentContentController {
-					self.replaceContentController(fromContentController: _currentContentController, toContentController: storedContentController, isReused: true)
+						self.replaceContentController(fromContentController: _currentContentController, toContentController: storedContentController, isReused: true)
 						// Update the reuse state
 						didReuseContentController = true
 						// Update the current segue identifier
@@ -125,8 +125,10 @@ public class ContainerController: UIViewController {
 	override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		Log("Prepare for segue with identifier: \(segue.identifier)")
 		if let _segueIdentifier = segue.identifier {
-			// Store the content controller for later reuse and to keep track of the current content controller
-			self.embedContentControllers[_segueIdentifier] = segue.destinationViewController
+			// Store the content controller for later reuse and to keep track of the current content controller if reusing is enabled
+			if (self.shouldReuseContentController == true) {
+				self.embedContentControllers[_segueIdentifier] = segue.destinationViewController
+			}
 			// Check whether there is already a current content controler
 			if let _currentContentController = self.currentContentController {
 				// If there is a current content controller we can replace the content controller directly
@@ -144,6 +146,8 @@ public class ContainerController: UIViewController {
 				self.view.addSubview(destinationView)
 				// Inform the content controller that is visible now
 				self.triggerDidMoveToParentViewControllerIfNeeded(segue.destinationViewController, isReused: false)
+				// Set the content controller as the current one
+				self.currentContentController = segue.destinationViewController
 				// Update the transition state flag
 				self.isPerformingTransition = false
 			}
@@ -168,15 +172,7 @@ public class ContainerController: UIViewController {
 
 	private var currentSegueIdentifier			: UIStoryboardSegueIdentifier?
 
-	private var currentContentController		: UIViewController? {
-		get {
-			if let _currentSegueIdentifier = self.currentSegueIdentifier {
-				return self.embedContentControllers[_currentSegueIdentifier]
-			} else {
-				return nil
-			}
-		}
-	}
+	private weak var currentContentController	: UIViewController?
 
 	// MARK: - Display
 
@@ -212,6 +208,8 @@ public class ContainerController: UIViewController {
 			self.triggerDidMoveToParentViewControllerIfNeeded(toContentController, isReused: isReused)
 			// Remove the old content controller as the animation is completed
 			fromContentController.removeFromParentViewController()
+			// Set the content controller as the current one
+			self.currentContentController = toContentController
 			// Update the transition state flag
 			self.isPerformingTransition = false
 		}
