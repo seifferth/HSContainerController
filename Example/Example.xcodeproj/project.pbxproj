@@ -164,6 +164,7 @@
 					87114B2B1D55EBDB00C58D85 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = BY48Q678R7;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -288,6 +289,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -326,6 +328,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -343,6 +346,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.swift.containercontroller.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "35c65a7a-c0c5-4add-ae0f-c5b38f3809d0";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -357,6 +361,7 @@
 				OTHER_SWIFT_FLAGS = "-D RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.swift.containercontroller.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

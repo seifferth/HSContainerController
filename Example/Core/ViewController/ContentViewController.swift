@@ -12,11 +12,11 @@ class ContentViewController: UIViewController {
 
 	var bottomText								: String?
 
-	@IBOutlet private weak var titleLabel		: UILabel?
-	@IBOutlet private weak var messageLabel		: UILabel?
-	@IBOutlet private weak var bottomLabel		: UILabel?
+	@IBOutlet fileprivate weak var titleLabel		: UILabel?
+	@IBOutlet fileprivate weak var messageLabel		: UILabel?
+	@IBOutlet fileprivate weak var bottomLabel		: UILabel?
 
-	private var didDisappear					= false
+	fileprivate var didDisappear					= false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -26,7 +26,7 @@ class ContentViewController: UIViewController {
 		self.bottomLabel?.text = self.bottomText
 	}
 
-	override func viewDidDisappear(animated: Bool) {
+	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 
 		self.didDisappear = true
@@ -34,7 +34,7 @@ class ContentViewController: UIViewController {
 		self.logLifecycle(#function)
 	}
 
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		if (self.didDisappear == true) {
@@ -49,7 +49,7 @@ class ContentViewController: UIViewController {
 
 	// MARK: -
 
-	private func logLifecycle(message: String) {
+	fileprivate func logLifecycle(_ message: String) {
 		print((self.titleLabel?.text ?? "-") + ": " + message)
 	}
 
