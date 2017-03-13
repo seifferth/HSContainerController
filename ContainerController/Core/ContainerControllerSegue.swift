@@ -11,9 +11,9 @@ import UIKit
 /**
 Custom `UIStoryboardSegue` which override `perform()` to do nothing as the it's only been used to identify the relationship between the two controllers and to pass them to the manually implementation in `ContainerController`.
 */
-public class ContainerControllerSegue: UIStoryboardSegue {
+open class ContainerControllerSegue: UIStoryboardSegue {
 
-	override public func perform() {
+	override open func perform() {
 		// The ContainerController handles the transition. This class is used to enable you to add connections between the views in the storyboard.
 	}
 }

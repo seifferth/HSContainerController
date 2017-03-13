@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - Log
 
-func Log(message: AnyObject = "", file: String = #file, function: String = #function, line: Int = #line) {
+func Log(_ message: Any = "", file: String = #file, function: String = #function, line: Int = #line) {
 	#if DEBUG
 		if (ContainerController.LogSettings.Verbose == true) {
 			if (ContainerController.LogSettings.DetailedLog == true),
-				let className = NSURL(string: file)?.lastPathComponent?.componentsSeparatedByString(".").first {
+				let className = NSURL(string: file)?.lastPathComponent?.components(separatedBy: ".").first {
 					let log = "\(NSDate()) - [\(className)].\(function)[\(line)]: \(message)"
 					print(log)
 			} else {
