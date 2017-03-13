@@ -10,5 +10,5 @@ import Foundation
 
 public protocol ContainerControllerDelegate: class {
 
-	func containerController(containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool)
+	func containerController(_ containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool)
 }

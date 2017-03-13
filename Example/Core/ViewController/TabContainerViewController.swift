@@ -11,21 +11,21 @@ import ContainerController
 
 class TabContainerViewController: UIViewController {
 
-	@IBAction func didPressContentAButton(sender: AnyObject) {
+	@IBAction func didPressContentAButton(_ sender: AnyObject) {
 		self.containerController?.displayContentController(segueIdentifier: "showContentA")
 	}
 
-	@IBAction func didPressContentBButton(sender: AnyObject) {
+	@IBAction func didPressContentBButton(_ sender: AnyObject) {
 		self.containerController?.displayContentController(segueIdentifier: "showContentB")
 	}
 
-	@IBAction func didPressContentCButton(sender: AnyObject) {
+	@IBAction func didPressContentCButton(_ sender: AnyObject) {
 		self.containerController?.displayContentController(segueIdentifier: "showContentC")
 	}
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		self.cc_setupContainerControllerIfNeeded(segue, defaultSegueIdentifier: "showContentA", didSetup: {
 			self.containerController?.delegate = self
 		})
@@ -34,11 +34,11 @@ class TabContainerViewController: UIViewController {
 
 extension TabContainerViewController: ContainerControllerDelegate {
 
-	func containerController(containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool) {
+	func containerController(_ containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool) {
 		if (isReused == false) {
 			if let
 				_navigationController = contentController as? UINavigationController,
-				_contentController = _navigationController.viewControllers.first as? ContentViewController {
+				let _contentController = _navigationController.viewControllers.first as? ContentViewController {
 				_contentController.bottomText = "Text set from the calling UIViewController"
 			} else if let _contentController = contentController as? ContentViewController {
 				_contentController.bottomText = "Text set from the calling UIViewController"
