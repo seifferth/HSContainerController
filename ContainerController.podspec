@@ -8,6 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ContainerController'
+  s.module_name      = "ContainerController"
   s.version          = File.read('VERSION')
   s.summary          = 'Lightweight Swift Framework for iOS which let you replace UIViewController in UIContainerViews based on UIStoryboardSegues!'
   s.homepage         = 'https://github.com/tschob/ContainerController.git'
