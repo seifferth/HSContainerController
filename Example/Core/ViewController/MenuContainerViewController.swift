@@ -25,15 +25,15 @@ class MenuContainerViewController: UIViewController {
 	}
 
 	@IBAction private func didPressContentAButton(_ sender: AnyObject) {
-		self.customContainerController?.displayContentController(segueIdentifier: "showContentA")
+		self.customContainerController?.display(segue: "showContentA")
 	}
 
 	@IBAction private func didPressContentBButton(_ sender: AnyObject) {
-		self.customContainerController?.displayContentController(segueIdentifier: "showContentB")
+		self.customContainerController?.display(segue: "showContentB")
 	}
 
 	@IBAction private func didPressContentCButton(_ sender: AnyObject) {
-		self.customContainerController?.displayContentController(segueIdentifier: "showContentC")
+		self.customContainerController?.display(segue: "showContentC")
 	}
 
 	// MARK: - Navigation
