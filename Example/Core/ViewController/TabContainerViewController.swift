@@ -12,23 +12,22 @@ import ContainerController
 class TabContainerViewController: UIViewController {
 
 	@IBAction private func didPressContentAButton(_ sender: AnyObject) {
-		self.containerController?.display(segue: "showContentA")
+		self.cc_containerController?.display(segue: "showContentA")
 	}
 
 	@IBAction private func didPressContentBButton(_ sender: AnyObject) {
-		self.containerController?.display(segue: "showContentB")
+		self.cc_containerController?.display(segue: "showContentB")
 	}
 
 	@IBAction private func didPressContentCButton(_ sender: AnyObject) {
-		self.containerController?.display(controller: "")
-		self.containerController?.display(segue: "showContentC")
+		self.cc_containerController?.display(segue: "showContentC")
 	}
 
 	// MARK: - Navigation
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		self.cc_setupContainerControllerIfNeeded(segue, default: "showContentA", didSetup: {
-			self.containerController?.delegate = self
+			self.cc_containerController?.delegate = self
 		})
 	}
 }

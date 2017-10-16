@@ -13,11 +13,11 @@ public extension UIViewController {
 
 	// MARK: - PUBLIC -
 
-	/// The `ContainerController` object which is contained in the `UIContainerView`.
-	/// This property is set within the `setupContainerControllerIfNeeded` method using the default segue identifier.
+	/// The `ContainerController` object which is contained in the Container View.
+	/// This property is set within the `cc_setupContainerControllerIfNeeded` method using the default segue identifier.
 	///
 	/// If you want to use a diferent segue identifier or multiple container controller in one view controller you have to store them manually by responding to your custom segue identifier.
-	public var containerController: ContainerController? {
+	public var cc_containerController: ContainerController? {
 		return self.privateContainerController
 	}
 

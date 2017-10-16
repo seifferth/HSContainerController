@@ -9,7 +9,7 @@
 import UIKit
 
 
-/// A `UIViewController` which can be used as embed view controller of an `UIContainerView`.
+/// A `UIViewController` which can be used as embed view controller of an Container View.
 /// By using segues in the storyboard which point from an instance of this class to other view controller it's possible to dynamically replace them using segues.
 /// This can be used for custom tab bars, side menus, etc.. The content view controller can either be reused or newly created everytime they are openend by setting the `shouldReuseContentController` flag.
 open class ContainerController: UIViewController {
