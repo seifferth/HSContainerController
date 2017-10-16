@@ -29,10 +29,10 @@ public extension UIViewController {
 	If this is the case and the defaut container controller isn't setup yet, it will store the controller in the default `containerController` property, set the default content segue identifier and call the `didSetup` closure.
 
 	- parameter segue: A `UIStoryboardSegue` which might use the default container controller segue identifier.
-	- parameter defaultSegueIdentifier: The default segue identifier of the content controller which should be used as first content to show.
+	- parameter defaultSegueIdentifier: The default segue identifier of the content controller which should be used as first content to show. The default value is `nil`.
 	- parameter didSetup: A closure which will only be called if the container controller is initialized. You might want to adjust the settings then. The default value is `nil`.
 	*/
-	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, defaultSegueIdentifier: String?, didSetup: (() -> Void)? = nil) {
+	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, defaultSegueIdentifier: String? = nil, didSetup: (() -> Void)? = nil) {
 		if (self.privateContainerController == nil && segue.identifier == ContainerController.EmbedSegueIdentifier),
 			let _containerController = segue.destination as? ContainerController {
 				self.privateContainerController = _containerController
@@ -43,14 +43,14 @@ public extension UIViewController {
 
 	// MARK: - PRIVATE -
 
-	fileprivate struct AssociatedKeys {
+	private struct AssociatedKeys {
 		static var PrivateContainerController = "cc_privateContainerController"
 	}
 
 	/**
 	The private associated property which holds the default `ContainerController` object. It's readable from the outside with the 'containerController' property.
 	*/
-	fileprivate var privateContainerController	: ContainerController? {
+	private var privateContainerController	: ContainerController? {
 		get {
 			return objc_getAssociatedObject(self, &AssociatedKeys.PrivateContainerController) as? ContainerController
 		}
