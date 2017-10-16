@@ -221,7 +221,7 @@ open class ContainerController: UIViewController {
 		}
 	}
 
-	func triggerDidMoveToParentViewControllerIfNeeded(_ toContentController: UIViewController, isReused: Bool) {
+	private func triggerDidMoveToParentViewControllerIfNeeded(_ toContentController: UIViewController, isReused: Bool) {
 		if let _navigationController = toContentController as? UINavigationController {
 			// If the view isn't reused we don't need to do anything here as the navigation controller will trigger the didMoveToParentViewController method itself
 			if isReused {
