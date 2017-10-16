@@ -23,13 +23,13 @@ class TabContainerViewController: UIViewController {
 		self.containerController?.displayContentController(segueIdentifier: "showContentC")
 	}
 
-    // MARK: - Navigation
+	// MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		self.cc_setupContainerControllerIfNeeded(segue, defaultSegueIdentifier: "showContentA", didSetup: {
 			self.containerController?.delegate = self
 		})
-    }
+	}
 }
 
 extension TabContainerViewController: ContainerControllerDelegate {

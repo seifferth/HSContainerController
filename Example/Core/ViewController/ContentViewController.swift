@@ -52,5 +52,4 @@ class ContentViewController: UIViewController {
 	fileprivate func logLifecycle(_ message: String) {
 		print((self.titleLabel?.text ?? "-") + ": " + message)
 	}
-
 }

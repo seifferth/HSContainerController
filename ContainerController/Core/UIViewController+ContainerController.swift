@@ -18,10 +18,8 @@ public extension UIViewController {
 	This property is set within the `setupContainerControllerIfNeeded` method using the default segue identifier.
 	If you want to use a diferent segue identifier or multiple container controller in one view controller you have to store them manually by responding to your custom segue identifier.
 	*/
-	public var containerController	: ContainerController? {
-		get {
-			return self.privateContainerController
-		}
+	public var containerController: ContainerController? {
+		return self.privateContainerController
 	}
 
 	/**
@@ -33,7 +31,7 @@ public extension UIViewController {
 	- parameter didSetup: A closure which will only be called if the container controller is initialized. You might want to adjust the settings then. The default value is `nil`.
 	*/
 	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, defaultSegueIdentifier: String?, didSetup: ((Void) -> Void)? = nil) {
-		if (self.privateContainerController == nil && segue.identifier == ContainerController.EmbedSegueIdentifier),
+		if (self.privateContainerController == nil && segue.identifier == ContainerController.embedSegueIdentifier),
 			let _containerController = segue.destination as? ContainerController {
 				self.privateContainerController = _containerController
 				self.privateContainerController?.defaultSegueIdentifier = defaultSegueIdentifier

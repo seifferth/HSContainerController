@@ -11,17 +11,17 @@ import ContainerController
 
 class MenuContainerViewController: UIViewController {
 
-	fileprivate var customContainerController		: ContainerController?
+	fileprivate var customContainerController			: ContainerController?
 
-	fileprivate var isMenuCollapsed					= false
-	@IBOutlet weak var menuWidthConstraint		: NSLayoutConstraint?
+	fileprivate var isMenuCollapsed						= false
+	@IBOutlet fileprivate weak var menuWidthConstraint	: NSLayoutConstraint?
 
 	@IBAction func didPressToggleMenuButton(_ sender: AnyObject) {
 		self.menuWidthConstraint?.constant = (isMenuCollapsed == true ? 240 : 120)
 		UIView.animate(withDuration: 0.3, animations: {
 			self.view.layoutIfNeeded()
 			self.isMenuCollapsed = !self.isMenuCollapsed
-		}) 
+		})
 	}
 
 	@IBAction func didPressContentAButton(_ sender: AnyObject) {
@@ -36,9 +36,9 @@ class MenuContainerViewController: UIViewController {
 		self.customContainerController?.displayContentController(segueIdentifier: "showContentC")
 	}
 
-    // MARK: - Navigation
+	// MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "customSegueIdentifier"),
 			let _containerController = segue.destination as? ContainerController {
 				self.customContainerController = _containerController
@@ -46,7 +46,7 @@ class MenuContainerViewController: UIViewController {
 				self.customContainerController?.defaultSegueIdentifier = "showContentA"
 				self.customContainerController?.delegate = self
 		}
-    }
+	}
 }
 
 extension MenuContainerViewController: ContainerControllerDelegate {
