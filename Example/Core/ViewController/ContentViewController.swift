@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ContentViewController: UIViewController {
+class ContentViewController						: UIViewController {
 
 	var bottomText								: String?
 
-	@IBOutlet fileprivate weak var titleLabel		: UILabel?
-	@IBOutlet fileprivate weak var messageLabel		: UILabel?
-	@IBOutlet fileprivate weak var bottomLabel		: UILabel?
+	@IBOutlet private weak var titleLabel		: UILabel?
+	@IBOutlet private weak var messageLabel		: UILabel?
+	@IBOutlet private weak var bottomLabel		: UILabel?
 
-	fileprivate var didDisappear					= false
+	fileprivate var didDisappear				= false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
