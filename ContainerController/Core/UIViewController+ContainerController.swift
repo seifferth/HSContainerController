@@ -44,14 +44,14 @@ public extension UIViewController {
 
 	// MARK: - PRIVATE -
 
-	fileprivate struct AssociatedKeys {
+	private struct AssociatedKeys {
 		static var PrivateContainerController = "cc_privateContainerController"
 	}
 
 	/**
 	The private associated property which holds the default `ContainerController` object. It's readable from the outside with the 'containerController' property.
 	*/
-	fileprivate var privateContainerController	: ContainerController? {
+	private var privateContainerController	: ContainerController? {
 		get {
 			return objc_getAssociatedObject(self, &AssociatedKeys.PrivateContainerController) as? ContainerController
 		}
