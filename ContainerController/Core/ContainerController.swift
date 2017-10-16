@@ -123,7 +123,7 @@ open class ContainerController: UIViewController {
 		if self.shouldReuseContentController {
 			self.embedContentControllers[_segueIdentifier] = segue.destination
 		}
-		// Check whether there is already a current content controler
+		// Check whether there is already a current content controller
 		if let _currentContentController = self.currentContentController {
 			// If there is a current content controller we can replace the content controller directly
 			self.replace(_currentContentController, with: segue.destination, isReused: false)
@@ -155,7 +155,7 @@ open class ContainerController: UIViewController {
 
 	// MARK: - PRIVATE -
 
-	/// Flag which is `true` a transition is currently performing
+	/// Flag which is `true` if a transition is currently performing
 	private var isPerformingTransition			= false
 
 	private var embedContentControllers			= [ReuseIdentifier: UIViewController]()
@@ -166,7 +166,7 @@ open class ContainerController: UIViewController {
 
 	// MARK: - Display
 
-	/// Replaces the given content controller with each other. The `fromContentController` has to be one which is currently displayed.
+	/// Replaces the given content controller with each other. The `sourceContentController` has to be one which is currently displayed.
 	///
 	/// - Parameters:
 	///   - sourceContentController: The current content controller which should be replaced
