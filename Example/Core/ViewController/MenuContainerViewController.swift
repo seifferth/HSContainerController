@@ -11,9 +11,9 @@ import ContainerController
 
 class MenuContainerViewController				: UIViewController {
 
-	fileprivate var customContainerController		: ContainerController?
+	private var customContainerController		: ContainerController?
 
-	fileprivate var isMenuCollapsed					= false
+	private var isMenuCollapsed					= false
 	@IBOutlet weak var menuWidthConstraint		: NSLayoutConstraint?
 
 	@IBAction func didPressToggleMenuButton(_ sender: AnyObject) {
