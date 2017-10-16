@@ -31,7 +31,8 @@ public extension UIViewController {
 	- parameter didSetup: A closure which will only be called if the container controller is initialized. You might want to adjust the settings then. The default value is `nil`.
 	*/
 	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, defaultSegueIdentifier: String?, didSetup: (() -> Void)? = nil) {
-		if (self.privateContainerController == nil && segue.identifier == ContainerController.embedSegueIdentifier),
+		if
+			self.privateContainerController == nil && segue.identifier == ContainerController.embedSegueIdentifier,
 			let _containerController = segue.destination as? ContainerController {
 				self.privateContainerController = _containerController
 				self.privateContainerController?.defaultSegueIdentifier = defaultSegueIdentifier
@@ -41,21 +42,21 @@ public extension UIViewController {
 
 	// MARK: - PRIVATE -
 
-	fileprivate struct AssociatedKeys {
-		static var PrivateContainerController = "cc_privateContainerController"
+	private struct AssociatedKeys {
+		static var privateContainerController = "cc_privateContainerController"
 	}
 
 	/**
 	The private associated property which holds the default `ContainerController` object. It's readable from the outside with the 'containerController' property.
 	*/
-	fileprivate var privateContainerController	: ContainerController? {
+	private var privateContainerController	: ContainerController? {
 		get {
-			return objc_getAssociatedObject(self, &AssociatedKeys.PrivateContainerController) as? ContainerController
+			return objc_getAssociatedObject(self, &AssociatedKeys.privateContainerController) as? ContainerController
 		}
 
 		set {
 			if let newValue = newValue {
-				objc_setAssociatedObject(self, &AssociatedKeys.PrivateContainerController, newValue as ContainerController?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+				objc_setAssociatedObject(self, &AssociatedKeys.privateContainerController, newValue as ContainerController?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 			}
 		}
 	}
