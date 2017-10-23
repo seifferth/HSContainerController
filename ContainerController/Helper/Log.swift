@@ -12,14 +12,17 @@ import UIKit
 
 func Log(_ message: Any = "", file: String = #file, function: String = #function, line: Int = #line) {
 	#if DEBUG
-		if (ContainerController.LogSettings.Verbose == true) {
-			if (ContainerController.LogSettings.DetailedLog == true),
-				let className = NSURL(string: file)?.lastPathComponent?.components(separatedBy: ".").first {
-					let log = "\(NSDate()) - [\(className)].\(function)[\(line)]: \(message)"
-					print(log)
-			} else {
-				print(message)
-			}
+		guard ContainerController.LogSettings.verbose else {
+			return
+		}
+
+		if
+			ContainerController.LogSettings.detailedLog,
+			let className = NSURL(string: file)?.lastPathComponent?.components(separatedBy: ".").first {
+				let log = "\(NSDate()) - [\(className)].\(function)[\(line)]: \(message)"
+				print(log)
+		} else {
+			print(message)
 		}
 	#endif
 }

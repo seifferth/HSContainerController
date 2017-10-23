@@ -8,9 +8,7 @@
 
 import UIKit
 
-/**
-Custom `UIStoryboardSegue` which override `perform()` to do nothing as the it's only been used to identify the relationship between the two controllers and to pass them to the manually implementation in `ContainerController`.
-*/
+/// Custom `UIStoryboardSegue` which override `perform()` to do nothing as the it's only been used to identify the relationship between the two controllers and to pass them to the manually implementation in `ContainerController`.
 open class ContainerControllerSegue: UIStoryboardSegue {
 
 	override open func perform() {
