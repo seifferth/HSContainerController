@@ -28,7 +28,7 @@ public extension UIViewController {
 	///   - segue: A `UIStoryboardSegue` which might use the default container controller segue identifier.
 	///   - segueIdentifier: The default segue identifier of the content controller which should be used as first content to show.
 	///   - didSetup: A closure which will only be called if the container controller is initialized. You might want to adjust the settings then. The default value is `nil`.
-	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, default segueIdentifier: ContainerController.StoryboardSegueIdentifier?, didSetup: (() -> Void)? = nil) {
+	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, default segueIdentifier: ContainerController.StoryboardSegueIdentifier? = nil, didSetup: (() -> Void)? = nil) {
 		if
 			self.privateContainerController == nil && segue.identifier == ContainerController.embedSegueIdentifier,
 			let _containerController = segue.destination as? ContainerController {

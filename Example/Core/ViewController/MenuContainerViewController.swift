@@ -9,7 +9,7 @@
 import UIKit
 import ContainerController
 
-class MenuContainerViewController: UIViewController {
+class MenuContainerViewController				: UIViewController {
 
 	private var customContainerController			: ContainerController?
 

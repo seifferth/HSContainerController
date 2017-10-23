@@ -73,9 +73,9 @@ open class ContainerController: UIViewController {
 	/// - parameter segueIdentifier: The segue identifier of the segue to the content controller which should be displayed.
 	open func display(segue identifier: StoryboardSegueIdentifier) {
 
-		guard !self.isPerformingTransition && (self.currentContentIdentifier != identifier || !self.shouldReuseContentController) else {
-			// Don't perform the swap if we are currently performing a transition or if the target view controller is already is shown.
-			Log("Content controller with identifier \(identifier) won't be displayed as it is already the current content controller" as AnyObject)
+		guard self.isPerformingTransition == false && (self.currentSegueIdentifier != segueIdentifier || self.shouldReuseContentController == false) else {
+			// Don't perform the swap if we are currently performing a transition or if the target view controller is already shown.
+			Log("Segue with the identifier \(segueIdentifier) won't be displayed as it is already the current content controller" as AnyObject)
 			return
 		}
 
@@ -109,12 +109,43 @@ open class ContainerController: UIViewController {
 		}
 	}
 
+	open func display(contentController: UIViewController) {
+
+		guard self.isPerformingTransition == false else {
+			// Don't perform the swap if we are currently performing a transition.
+			Log("ContentController: \(contentController.description) won't be displayed as a transition is currently running" as AnyObject)
+			return
+		}
+
+		self.isPerformingTransition = true
+
+		if let currentController = self.currentContentController {
+			self.replaceContentController(fromContentController: currentController, toContentController: contentController, isReused: false)
+		} else {
+			self.setup(with: contentController)
+		}
+	}
+
 	// MARK: - Segue
 
 	/// The default segue behavior will be overriden by this method. Instead of performing the segue, the destination content controllers view will replace the current view.
 	override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		Log("Prepare for segue with identifier: \(String(describing: segue.identifier))" as AnyObject)
-		guard let _segueIdentifier = segue.identifier else {
+		Log("Prepare for segue with identifier: \(segue.identifier)" as AnyObject)
+		if let _segueIdentifier = segue.identifier {
+			// Store the content controller for later reuse and to keep track of the current content controller if reusing is enabled
+			if (self.shouldReuseContentController == true) {
+				self.embedContentControllers[_segueIdentifier] = segue.destination
+			}
+			// Check whether there is already a current content controler
+			if let _currentContentController = self.currentContentController {
+				// If there is a current content controller we can replace the content controller directly
+				self.replaceContentController(fromContentController: _currentContentController, toContentController: segue.destination, isReused: false)
+			} else {
+				self.setup(with: segue.destination)
+			}
+			// Update the current segue identifier
+			self.currentSegueIdentifier = _segueIdentifier
+		} else {
 			assertionFailure("Error using ContainerController: The segue has to contain an identifier!")
 			return
 		}
@@ -205,7 +236,26 @@ open class ContainerController: UIViewController {
 		}
 	}
 
-	private func triggerDidMoveToParentViewControllerIfNeeded(_ toContentController: UIViewController, isReused: Bool) {
+	private func setup(with contentController: UIViewController) {
+		// Inform the delegate that the view controller is created and will be displayed. As it's just created it's not reused.
+		self.delegate?.containerController(self, willDisplay: contentController, isReused: false)
+		// If there isn't a current controller we have to add it as child and add the view
+		self.addChildViewController(contentController)
+		// Replace the container view with the content controlers view
+		let destinationView = contentController.view
+		destinationView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		destinationView?.frame = self.view.bounds
+		destinationView?.layoutIfNeeded()
+		self.view.addSubview(destinationView!)
+		// Inform the content controller that is visible now
+		self.triggerDidMoveToParentViewControllerIfNeeded(contentController, isReused: false)
+		// Set the content controller as the current one
+		self.currentContentController = contentController
+		// Update the transition state flag
+		self.isPerformingTransition = false
+	}
+
+	func triggerDidMoveToParentViewControllerIfNeeded(_ toContentController: UIViewController, isReused: Bool) {
 		if let _navigationController = toContentController as? UINavigationController {
 			// If the view isn't reused we don't need to do anything here as the navigation controller will trigger the didMoveToParentViewController method itself
 			if isReused {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContentViewController: UIViewController {
+class ContentViewController						: UIViewController {
 
 	var bottomText								: String?
 
