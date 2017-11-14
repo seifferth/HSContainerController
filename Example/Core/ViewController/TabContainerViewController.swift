@@ -11,38 +11,40 @@ import ContainerController
 
 class TabContainerViewController: UIViewController {
 
-	@IBAction func didPressContentAButton(_ sender: AnyObject) {
-		self.containerController?.displayContentController(segueIdentifier: "showContentA")
+	@IBAction private func didPressContentAButton(_ sender: AnyObject) {
+		self.cc_containerController?.display(segue: "showContentA")
 	}
 
-	@IBAction func didPressContentBButton(_ sender: AnyObject) {
-		self.containerController?.displayContentController(segueIdentifier: "showContentB")
+	@IBAction private func didPressContentBButton(_ sender: AnyObject) {
+		self.cc_containerController?.display(segue: "showContentB")
 	}
 
-	@IBAction func didPressContentCButton(_ sender: AnyObject) {
-		self.containerController?.displayContentController(segueIdentifier: "showContentC")
+	@IBAction private func didPressContentCButton(_ sender: AnyObject) {
+		self.cc_containerController?.display(segue: "showContentC")
 	}
 
-    // MARK: - Navigation
+	// MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		self.cc_setupContainerControllerIfNeeded(segue, defaultSegueIdentifier: "showContentA", didSetup: {
-			self.containerController?.delegate = self
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		self.cc_setupContainerControllerIfNeeded(segue, default: "showContentA", didSetup: {
+			self.cc_containerController?.delegate = self
 		})
-    }
+	}
 }
 
 extension TabContainerViewController: ContainerControllerDelegate {
 
 	func containerController(_ containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool) {
-		if (isReused == false) {
-			if let
-				_navigationController = contentController as? UINavigationController,
-				let _contentController = _navigationController.viewControllers.first as? ContentViewController {
+		guard !isReused else {
+			return
+		}
+
+		if
+			let _navigationController = contentController as? UINavigationController,
+			let _contentController = _navigationController.viewControllers.first as? ContentViewController {
 				_contentController.bottomText = "Text set from the calling UIViewController"
-			} else if let _contentController = contentController as? ContentViewController {
-				_contentController.bottomText = "Text set from the calling UIViewController"
-			}
+		} else if let _contentController = contentController as? ContentViewController {
+			_contentController.bottomText = "Text set from the calling UIViewController"
 		}
 	}
 }

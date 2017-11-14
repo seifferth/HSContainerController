@@ -12,11 +12,11 @@ class ContentViewController: UIViewController {
 
 	var bottomText								: String?
 
-	@IBOutlet fileprivate weak var titleLabel		: UILabel?
-	@IBOutlet fileprivate weak var messageLabel		: UILabel?
-	@IBOutlet fileprivate weak var bottomLabel		: UILabel?
+	@IBOutlet private weak var titleLabel		: UILabel?
+	@IBOutlet private weak var messageLabel		: UILabel?
+	@IBOutlet private weak var bottomLabel		: UILabel?
 
-	fileprivate var didDisappear					= false
+	private var didDisappear					= false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -37,7 +37,7 @@ class ContentViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
-		if (self.didDisappear == true) {
+		if self.didDisappear {
 			self.messageLabel?.text = "REUSED"
 		}
 		self.logLifecycle(#function)
@@ -49,8 +49,7 @@ class ContentViewController: UIViewController {
 
 	// MARK: -
 
-	fileprivate func logLifecycle(_ message: String) {
+	private func logLifecycle(_ message: String) {
 		print((self.titleLabel?.text ?? "-") + ": " + message)
 	}
-
 }
