@@ -22,7 +22,7 @@ open class ContainerController: UIViewController {
 	// MARK: - Constants
 
 	/// The default embed segue identifier which should be used for the default setup.
-	open static let embedSegueIdentifier			= "cc_embedContainerController"
+	public static let embedSegueIdentifier			= "cc_embedContainerController"
 
 	// MARK: - Settings
 
@@ -131,7 +131,7 @@ open class ContainerController: UIViewController {
 			// Inform the delegate that the view controller is created and will be displayed. As it's just created it's not reused.
 			self.delegate?.containerController(self, willDisplay: segue.destination, isReused: false)
 			// If there isn't a current controller we have to add it as child and add the view
-			self.addChildViewController(segue.destination)
+			self.addChild(segue.destination)
 			// Replace the container view with the content controlers view
 			guard let destinationView = segue.destination.view else {
 				assertionFailure("Coudln't access view of the segue destination")
@@ -184,7 +184,7 @@ open class ContainerController: UIViewController {
 		targetContentController.view.layoutIfNeeded()
 
 		// Prepare the transition
-		self.addChildViewController(targetContentController)
+		self.addChild(targetContentController)
 		// Perform the transition
 		self.transition(from: sourceContentController, to: targetContentController, duration: self.transitionAnimationDuration, options: .transitionCrossDissolve, animations: nil) { (finished: Bool) in
 			// Remove the old content controller from the stored controllers if reusing is disabled. This will release the old content controller
@@ -197,7 +197,7 @@ open class ContainerController: UIViewController {
 			// Complete the adding of the new content controller
 			self.triggerDidMoveToParentViewControllerIfNeeded(targetContentController, isReused: isReused)
 			// Remove the old content controller as the animation is completed
-			sourceContentController.removeFromParentViewController()
+			sourceContentController.removeFromParent()
 			// Set the content controller as the current one
 			self.currentContentController = targetContentController
 			// Update the transition state flag
@@ -209,11 +209,11 @@ open class ContainerController: UIViewController {
 		if let _navigationController = toContentController as? UINavigationController {
 			// If the view isn't reused we don't need to do anything here as the navigation controller will trigger the didMoveToParentViewController method itself
 			if isReused {
-				_navigationController.childViewControllers.first?.didMove(toParentViewController: self)
+				_navigationController.children.first?.didMove(toParent: self)
 			}
 		} else {
 			// As the destination isn't a UINavigationController we need to call the method manually
-			toContentController.didMove(toParentViewController: self)
+			toContentController.didMove(toParent: self)
 		}
 	}
 }
