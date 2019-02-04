@@ -41,8 +41,9 @@ class MenuContainerViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if
 			segue.identifier == "customSegueIdentifier",
-			let _containerController = segue.destination as? ContainerController {
-				self.customContainerController = _containerController
+			let containerController = segue.destination as? ContainerController {
+
+				self.customContainerController = containerController
 				self.customContainerController?.shouldReuseContentController = false
 				self.customContainerController?.defaultSegueIdentifier = "showContentA"
 				self.customContainerController?.delegate = self
@@ -58,11 +59,13 @@ extension MenuContainerViewController: ContainerControllerDelegate {
 		}
 
 		if
-			let _navigationController = contentController as? UINavigationController,
-			let _contentController = _navigationController.viewControllers.first as? ContentViewController {
-				_contentController.bottomText = "Text set from the calling UIViewController"
-		} else if let _contentController = contentController as? ContentViewController {
-			_contentController.bottomText = "Text set from the calling UIViewController"
+			let navigationController = contentController as? UINavigationController,
+			let contentController = navigationController.viewControllers.first as? ContentViewController {
+
+				contentController.bottomText = "Text set from the calling UIViewController"
+		} else if let contentController = contentController as? ContentViewController {
+
+			contentController.bottomText = "Text set from the calling UIViewController"
 		}
 	}
 }

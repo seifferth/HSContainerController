@@ -12,22 +12,22 @@ import ContainerController
 class TabContainerViewController: UIViewController {
 
 	@IBAction private func didPressContentAButton(_ sender: AnyObject) {
-		self.cc_containerController?.display(segue: "showContentA")
+		self.ccContainerController?.display(segue: "showContentA")
 	}
 
 	@IBAction private func didPressContentBButton(_ sender: AnyObject) {
-		self.cc_containerController?.display(segue: "showContentB")
+		self.ccContainerController?.display(segue: "showContentB")
 	}
 
 	@IBAction private func didPressContentCButton(_ sender: AnyObject) {
-		self.cc_containerController?.display(segue: "showContentC")
+		self.ccContainerController?.display(segue: "showContentC")
 	}
 
 	// MARK: - Navigation
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		self.cc_setupContainerControllerIfNeeded(segue, default: "showContentA", didSetup: {
-			self.cc_containerController?.delegate = self
+			self.ccContainerController?.delegate = self
 		})
 	}
 }
@@ -40,11 +40,13 @@ extension TabContainerViewController: ContainerControllerDelegate {
 		}
 
 		if
-			let _navigationController = contentController as? UINavigationController,
-			let _contentController = _navigationController.viewControllers.first as? ContentViewController {
-				_contentController.bottomText = "Text set from the calling UIViewController"
-		} else if let _contentController = contentController as? ContentViewController {
-			_contentController.bottomText = "Text set from the calling UIViewController"
+			let navigationController = contentController as? UINavigationController,
+			let contentController = navigationController.viewControllers.first as? ContentViewController {
+
+				contentController.bottomText = "Text set from the calling UIViewController"
+		} else if let contentController = contentController as? ContentViewController {
+
+			contentController.bottomText = "Text set from the calling UIViewController"
 		}
 	}
 }
