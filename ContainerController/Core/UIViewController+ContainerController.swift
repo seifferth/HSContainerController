@@ -17,7 +17,7 @@ public extension UIViewController {
 	/// This property is set within the `cc_setupContainerControllerIfNeeded` method using the default segue identifier.
 	///
 	/// If you want to use a diferent segue identifier or multiple container controller in one view controller you have to store them manually by responding to your custom segue identifier.
-	public var cc_containerController: ContainerController? {
+	public var ccContainerController: ContainerController? {
 		return self.privateContainerController
 	}
 
@@ -31,8 +31,8 @@ public extension UIViewController {
 	public func cc_setupContainerControllerIfNeeded(_ segue: UIStoryboardSegue, default segueIdentifier: ContainerController.StoryboardSegueIdentifier?, didSetup: (() -> Void)? = nil) {
 		if
 			self.privateContainerController == nil && segue.identifier == ContainerController.embedSegueIdentifier,
-			let _containerController = segue.destination as? ContainerController {
-				self.privateContainerController = _containerController
+			let containerController = segue.destination as? ContainerController {
+				self.privateContainerController = containerController
 				self.privateContainerController?.defaultSegueIdentifier = segueIdentifier
 				didSetup?()
 		}
@@ -41,7 +41,7 @@ public extension UIViewController {
 	// MARK: - PRIVATE -
 
 	private struct AssociatedKeys {
-		static var privateContainerController = "cc_privateContainerController"
+		static var privateContainerController = "ccContainerController"
 	}
 
 	/// The private associated property which holds the default `ContainerController` object. It's readable from the outside with the 'containerController' property.
