@@ -24,6 +24,7 @@
 		874CF04A1D55F02E0049423E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		877DFDE81D56226000A1BF33 /* UIViewController+ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContainerViewController.swift"; sourceTree = "<group>"; };
 		F7DBED6C220A20AC000ED71A /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		F7DBED6E220A22AC000ED71A /* ContainerController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = ContainerController.podspec; path = ../ContainerController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		87114B0E1D55EBA500C58D85 = {
 			isa = PBXGroup;
 			children = (
+				F7DBED6E220A22AC000ED71A /* ContainerController.podspec */,
 				87114B431D55EC9500C58D85 /* Core */,
 				874CF0491D55F02E0049423E /* Helper */,
 				87114B561D55EDE100C58D85 /* Headers */,
