@@ -17,7 +17,7 @@ public extension UIViewController {
 	/// This property is set within the `cc_setupContainerViewControllerIfNeeded` method using the default segue identifier.
 	///
 	/// If you want to use a diferent segue identifier or multiple container controller in one view controller you have to store them manually by responding to your custom segue identifier.
-	public var ccContainerViewController: ContainerViewController? {
+	public var cc_ContainerViewController: ContainerViewController? {
 		return self.privateContainerViewController
 	}
 
