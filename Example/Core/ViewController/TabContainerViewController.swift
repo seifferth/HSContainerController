@@ -42,10 +42,8 @@ extension TabContainerViewController: ContainerViewControllerDelegate {
 		if
 			let navigationController = contentController as? UINavigationController,
 			let contentController = navigationController.viewControllers.first as? ContentViewController {
-
 				contentController.bottomText = "Text set from the calling UIViewController"
 		} else if let contentController = contentController as? ContentViewController {
-
 			contentController.bottomText = "Text set from the calling UIViewController"
 		}
 	}

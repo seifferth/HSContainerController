@@ -42,7 +42,6 @@ class MenuContainerViewController: UIViewController {
 		if
 			segue.identifier == "customSegueIdentifier",
 			let containerViewController = segue.destination as? ContainerViewController {
-
 				self.customContainerViewController = containerViewController
 				self.customContainerViewController?.shouldReuseContentController = false
 				self.customContainerViewController?.defaultSegueIdentifier = "showContentA"
@@ -61,10 +60,8 @@ extension MenuContainerViewController: ContainerViewControllerDelegate {
 		if
 			let navigationController = contentController as? UINavigationController,
 			let contentController = navigationController.viewControllers.first as? ContentViewController {
-
 				contentController.bottomText = "Text set from the calling UIViewController"
 		} else if let contentController = contentController as? ContentViewController {
-
 			contentController.bottomText = "Text set from the calling UIViewController"
 		}
 	}
