@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ContainerController: 3e5bed6004573a0e0f2384cad0eb6437e149e0a9
+  ContainerController: 11685ae3a66315547931480287033fddf27ee936
   SwiftLint: 6de8b2d15f43c482bdec2953b8cfd696faa876e8
 
 PODFILE CHECKSUM: 9bb96c2c7a845d6773e5eb95661585fe4257ae0e

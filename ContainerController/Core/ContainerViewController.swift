@@ -1,5 +1,5 @@
 //
-//  ContainerController.swift
+//  ContainerViewController.swift
 //  ContainerController
 //
 //  Created by Hans Seiffert on 06.08.16.
@@ -11,7 +11,7 @@ import UIKit
 /// A `UIViewController` which can be used as embed view controller of an Container View.
 /// By using segues in the storyboard which point from an instance of this class to other view controller it's possible to dynamically replace them using segues.
 /// This can be used for custom tab bars, side menus, etc.. The content view controller can either be reused or newly created everytime they are openend by setting the `shouldReuseContentController` flag.
-open class ContainerController: UIViewController {
+open class ContainerViewController: UIViewController {
 
 	// MARK: - PUBLIC -
 
@@ -45,10 +45,10 @@ open class ContainerController: UIViewController {
 
 	/// The segue identifier of the content controller which should be displayed as first controller after the creation of the container controller.
 	///
-	/// This should be set during `preapreForSegue()` manually or using `setupContainerControllerIfNeeded()`.
+	/// This should be set during `preapreForSegue()` manually or using `setupContainerViewControllerIfNeeded()`.
 	open var defaultSegueIdentifier					: StoryboardSegueIdentifier?
 
-	open weak var delegate							: ContainerControllerDelegate?
+	open weak var delegate							: ContainerViewControllerDelegate?
 
 	// MARK: - Lifecycle
 
@@ -128,7 +128,7 @@ open class ContainerController: UIViewController {
 			self.replace(currentContentController, with: segue.destination, isReused: false)
 		} else {
 			// Inform the delegate that the view controller is created and will be displayed. As it's just created it's not reused.
-			self.delegate?.containerController(self, willDisplay: segue.destination, isReused: false)
+			self.delegate?.containerViewController(self, willDisplay: segue.destination, isReused: false)
 			// If there isn't a current controller we have to add it as child and add the view
 			self.addChild(segue.destination)
 			// Replace the container view with the content controlers view
@@ -175,7 +175,7 @@ open class ContainerController: UIViewController {
 		log("Replace content controller: \(sourceContentController) with content controller \(targetContentController)" as AnyObject)
 
 		// Inform the delegate that the view controller will be displayed
-		self.delegate?.containerController(self, willDisplay: targetContentController, isReused: isReused)
+		self.delegate?.containerViewController(self, willDisplay: targetContentController, isReused: isReused)
 
 		// Update the layout from the new content controller to match the current frame
 		targetContentController.view.frame = self.view.bounds

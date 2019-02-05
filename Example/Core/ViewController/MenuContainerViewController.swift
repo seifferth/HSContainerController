@@ -11,7 +11,7 @@ import ContainerController
 
 class MenuContainerViewController: UIViewController {
 
-	private var customContainerController			: ContainerController?
+	private var customContainerViewController			: ContainerViewController?
 
 	private var isMenuCollapsed						= false
 	@IBOutlet private weak var menuWidthConstraint	: NSLayoutConstraint?
@@ -25,15 +25,15 @@ class MenuContainerViewController: UIViewController {
 	}
 
 	@IBAction private func didPressContentAButton(_ sender: AnyObject) {
-		self.customContainerController?.display(segue: "showContentA")
+		self.customContainerViewController?.display(segue: "showContentA")
 	}
 
 	@IBAction private func didPressContentBButton(_ sender: AnyObject) {
-		self.customContainerController?.display(segue: "showContentB")
+		self.customContainerViewController?.display(segue: "showContentB")
 	}
 
 	@IBAction private func didPressContentCButton(_ sender: AnyObject) {
-		self.customContainerController?.display(segue: "showContentC")
+		self.customContainerViewController?.display(segue: "showContentC")
 	}
 
 	// MARK: - Navigation
@@ -41,19 +41,19 @@ class MenuContainerViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if
 			segue.identifier == "customSegueIdentifier",
-			let containerController = segue.destination as? ContainerController {
+			let containerViewController = segue.destination as? ContainerViewController {
 
-				self.customContainerController = containerController
-				self.customContainerController?.shouldReuseContentController = false
-				self.customContainerController?.defaultSegueIdentifier = "showContentA"
-				self.customContainerController?.delegate = self
+				self.customContainerViewController = containerViewController
+				self.customContainerViewController?.shouldReuseContentController = false
+				self.customContainerViewController?.defaultSegueIdentifier = "showContentA"
+				self.customContainerViewController?.delegate = self
 		}
 	}
 }
 
-extension MenuContainerViewController: ContainerControllerDelegate {
+extension MenuContainerViewController: ContainerViewControllerDelegate {
 
-	func containerController(_ containerController: ContainerController, willDisplay contentController: UIViewController, isReused: Bool) {
+	func containerViewController(_ containerViewController: ContainerViewController, willDisplay contentController: UIViewController, isReused: Bool) {
 		guard !isReused else {
 			return
 		}
