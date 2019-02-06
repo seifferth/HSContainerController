@@ -5,7 +5,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/tschob/ContainerController)
 [![License](https://img.shields.io/cocoapods/l/ContainerController.svg?style=flat)](http://cocoadocs.org/docsets/ContainerController)
 [![Platform](https://img.shields.io/cocoapods/p/ContainerController.svg?style=flat)](http://cocoadocs.org/docsets/ContainerController)
-[![Language: Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg)](https://swift.org)
+[![Language: Swift 4.2](https://img.shields.io/badge/Swift-4.2-green.svg)](https://swift.org)
 
 ## Author
 
