@@ -7,23 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3ADD6DB21DA7C2CA008D0B02 /* ContainerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD6DB11DA7C2CA008D0B02 /* ContainerControllerDelegate.swift */; };
-		87114B541D55EDDA00C58D85 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87114B521D55EDDA00C58D85 /* ContainerController.swift */; };
+		3ADD6DB21DA7C2CA008D0B02 /* ContainerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD6DB11DA7C2CA008D0B02 /* ContainerViewControllerDelegate.swift */; };
 		87114B581D55EDE100C58D85 /* ContainerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 87114B571D55EDE100C58D85 /* ContainerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8745ADD11D56472A00393E54 /* ContainerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87114B531D55EDDA00C58D85 /* ContainerControllerSegue.swift */; };
 		874CF04B1D55F02E0049423E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874CF04A1D55F02E0049423E /* Log.swift */; };
-		877DFDE91D56226000A1BF33 /* UIViewController+ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DFDE81D56226000A1BF33 /* UIViewController+ContainerController.swift */; };
+		877DFDE91D56226000A1BF33 /* UIViewController+ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DFDE81D56226000A1BF33 /* UIViewController+ContainerViewController.swift */; };
+		F7DBED6D220A20AD000ED71A /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DBED6C220A20AC000ED71A /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3ADD6DB11DA7C2CA008D0B02 /* ContainerControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerControllerDelegate.swift; sourceTree = "<group>"; };
+		3ADD6DB11DA7C2CA008D0B02 /* ContainerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		87114B181D55EBA600C58D85 /* ContainerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ContainerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87114B421D55EC8700C58D85 /* ContainerController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContainerController-Info.plist"; sourceTree = "<group>"; };
-		87114B521D55EDDA00C58D85 /* ContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		87114B531D55EDDA00C58D85 /* ContainerControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerControllerSegue.swift; sourceTree = "<group>"; };
 		87114B571D55EDE100C58D85 /* ContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerController.h; sourceTree = "<group>"; };
 		874CF04A1D55F02E0049423E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		877DFDE81D56226000A1BF33 /* UIViewController+ContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContainerController.swift"; sourceTree = "<group>"; };
+		877DFDE81D56226000A1BF33 /* UIViewController+ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContainerViewController.swift"; sourceTree = "<group>"; };
+		F7DBED6C220A20AC000ED71A /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		F7DBED6E220A22AC000ED71A /* ContainerController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = ContainerController.podspec; path = ../ContainerController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		87114B0E1D55EBA500C58D85 = {
 			isa = PBXGroup;
 			children = (
+				F7DBED6E220A22AC000ED71A /* ContainerController.podspec */,
 				87114B431D55EC9500C58D85 /* Core */,
 				874CF0491D55F02E0049423E /* Helper */,
 				87114B561D55EDE100C58D85 /* Headers */,
@@ -67,10 +69,10 @@
 		87114B431D55EC9500C58D85 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				87114B521D55EDDA00C58D85 /* ContainerController.swift */,
-				3ADD6DB11DA7C2CA008D0B02 /* ContainerControllerDelegate.swift */,
+				F7DBED6C220A20AC000ED71A /* ContainerViewController.swift */,
+				3ADD6DB11DA7C2CA008D0B02 /* ContainerViewControllerDelegate.swift */,
 				87114B531D55EDDA00C58D85 /* ContainerControllerSegue.swift */,
-				877DFDE81D56226000A1BF33 /* UIViewController+ContainerController.swift */,
+				877DFDE81D56226000A1BF33 /* UIViewController+ContainerViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -130,7 +132,7 @@
 		87114B0F1D55EBA500C58D85 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Hans Seiffert";
 				TargetAttributes = {
 					87114B171D55EBA600C58D85 = {
@@ -189,10 +191,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8745ADD11D56472A00393E54 /* ContainerControllerSegue.swift in Sources */,
-				3ADD6DB21DA7C2CA008D0B02 /* ContainerControllerDelegate.swift in Sources */,
-				87114B541D55EDDA00C58D85 /* ContainerController.swift in Sources */,
+				3ADD6DB21DA7C2CA008D0B02 /* ContainerViewControllerDelegate.swift in Sources */,
 				874CF04B1D55F02E0049423E /* Log.swift in Sources */,
-				877DFDE91D56226000A1BF33 /* UIViewController+ContainerController.swift in Sources */,
+				F7DBED6D220A20AD000ED71A /* ContainerViewController.swift in Sources */,
+				877DFDE91D56226000A1BF33 /* UIViewController+ContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,12 +214,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -250,6 +254,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -269,12 +274,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -300,6 +307,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -326,7 +334,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -348,7 +356,7 @@
 				PRODUCT_NAME = ContainerController;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
