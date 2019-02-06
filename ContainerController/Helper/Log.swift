@@ -12,12 +12,12 @@ import UIKit
 
 func log(_ message: Any = "", file: String = #file, function: String = #function, line: Int = #line) {
 	#if DEBUG
-		guard ContainerController.LogSettings.verbose else {
+		guard ContainerViewController.LogSettings.verbose else {
 			return
 		}
 
 		if
-			ContainerController.LogSettings.detailedLog,
+			ContainerViewController.LogSettings.detailedLog,
 			let className = NSURL(string: file)?.lastPathComponent?.components(separatedBy: ".").first {
 				let log = "\(NSDate()) - [\(className)].\(function)[\(line)]: \(message)"
 				print(log)
