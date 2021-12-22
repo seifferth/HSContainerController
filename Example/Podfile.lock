@@ -1,5 +1,5 @@
 PODS:
-  - ContainerController (1.1)
+  - ContainerController (1.2)
   - SwiftLint (0.45.1)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ContainerController: e7e439ead2983f35fd14a7c9255b96db6c9247ae
+  ContainerController: 0eb48e0f124579bfe04196855b50efddeb39448a
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
 
 PODFILE CHECKSUM: ea959055ea2c98e7449da90673318f2763724aea
