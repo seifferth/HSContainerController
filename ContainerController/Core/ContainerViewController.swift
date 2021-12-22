@@ -189,7 +189,7 @@ open class ContainerViewController: UIViewController {
 			// Remove the old content controller from the stored controllers if reusing is disabled. This will release the old content controller
 			if
 				!self.shouldReuseContentController,
-				let index = self.embedContentControllers.values.index(of: sourceContentController) {
+				let index = self.embedContentControllers.values.firstIndex(of: sourceContentController) {
 					log("Remove content controller: \(sourceContentController) from the stored embed controller as it shouldn't be reused." as AnyObject)
 					self.embedContentControllers.remove(at: index)
 			}

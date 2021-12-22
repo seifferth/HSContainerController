@@ -17,7 +17,7 @@ public extension UIViewController {
 	/// This property is set within the `cc_setupContainerViewControllerIfNeeded` method using the default segue identifier.
 	///
 	/// If you want to use a diferent segue identifier or multiple container controller in one view controller you have to store them manually by responding to your custom segue identifier.
-	public var cc_ContainerViewController: ContainerViewController? {
+    var cc_ContainerViewController: ContainerViewController? {
 		return self.privateContainerViewController
 	}
 
@@ -28,7 +28,7 @@ public extension UIViewController {
 	///   - segue: A `UIStoryboardSegue` which might use the default container controller segue identifier.
 	///   - segueIdentifier: The default segue identifier of the content controller which should be used as first content to show.
 	///   - didSetup: A closure which will only be called if the container controller is initialized. You might want to adjust the settings then. The default value is `nil`.
-	public func cc_setupContainerViewControllerIfNeeded(_ segue: UIStoryboardSegue, default segueIdentifier: ContainerViewController.StoryboardSegueIdentifier?, didSetup: (() -> Void)? = nil) {
+    func cc_setupContainerViewControllerIfNeeded(_ segue: UIStoryboardSegue, default segueIdentifier: ContainerViewController.StoryboardSegueIdentifier?, didSetup: (() -> Void)? = nil) {
 		if
 			self.privateContainerViewController == nil && segue.identifier == ContainerViewController.embedSegueIdentifier,
 			let containerController = segue.destination as? ContainerViewController {

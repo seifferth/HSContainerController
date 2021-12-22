@@ -12,13 +12,13 @@ Pod::Spec.new do |s|
   s.summary          = 'Lightweight Swift Framework for iOS which let you replace UIViewController in UIContainerViews based on UIStoryboardSegues!'
   s.homepage         = 'https://github.com/tschob/ContainerController.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Hans Seiffert' => 'hans.seiffert@gmail.com' }
+  s.author           = { 'Hans Seiffert' => 'tschob@posteo.de' }
 
   s.source           = { :git => 'https://github.com/tschob/ContainerController.git', :tag => s.version.to_s }
 
   s.platform              = :ios
-  s.ios.deployment_target = '8.0'
-  s.swift_version         = '4.2'
+  s.ios.deployment_target = '9.0'
+  s.swift_version         = '5.3'
 
   s.source_files = 'ContainerController/**/*.{swift,h}'
   s.public_header_files = 'ContainerController/**/*.h'

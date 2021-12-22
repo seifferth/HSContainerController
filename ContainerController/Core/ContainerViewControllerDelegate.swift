@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ContainerViewControllerDelegate: class {
+public protocol ContainerViewControllerDelegate: AnyObject {
 
 	func containerViewController(_ containerController: ContainerViewController, willDisplay contentController: UIViewController, isReused: Bool)
 }
