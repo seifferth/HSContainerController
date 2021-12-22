@@ -193,10 +193,10 @@ open class ContainerViewController: UIViewController {
 					log("Remove content controller: \(sourceContentController) from the stored embed controller as it shouldn't be reused." as AnyObject)
 					self.embedContentControllers.remove(at: index)
 			}
-			// Complete the adding of the new content controller
-			self.triggerDidMoveToParentViewControllerIfNeeded(targetContentController, isReused: isReused)
 			// Remove the old content controller as the animation is completed
 			sourceContentController.removeFromParent()
+			// Complete the adding of the new content controller
+			self.triggerDidMoveToParentViewControllerIfNeeded(targetContentController, isReused: isReused)
 			// Set the content controller as the current one
 			self.currentContentController = targetContentController
 			// Update the transition state flag
