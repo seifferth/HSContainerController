@@ -1,13 +1,13 @@
 PODS:
-  - ContainerController (1.0)
-  - SwiftLint (0.30.1)
+  - ContainerController (1.1)
+  - SwiftLint (0.45.1)
 
 DEPENDENCIES:
   - ContainerController (from `../`)
-  - SwiftLint (~> 0.30.1)
+  - SwiftLint (~> 0.45.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ContainerController: cc23af15a0f362aa8ff5804cae047d288e7ef80a
-  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  ContainerController: e7e439ead2983f35fd14a7c9255b96db6c9247ae
+  SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
 
-PODFILE CHECKSUM: bf170c0fc679af9c07716afb977f44ac5674ce03
+PODFILE CHECKSUM: ea959055ea2c98e7449da90673318f2763724aea
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.11.2

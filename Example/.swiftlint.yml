@@ -24,7 +24,6 @@ excluded: # paths to ignore during linting. overridden by `included`.
   - fastlane
 
 opt_in_rules:
-  - valid_docs
   - force_unwrapping
   - conditional_returns_on_newline
   - private_outlet
